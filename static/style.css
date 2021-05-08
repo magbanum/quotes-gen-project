@@ -1,0 +1,264 @@
+/*  import google fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 40px;
+    padding: 0 100px 0 100px;
+}
+
+h4 {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+
+/* effect-shine */
+
+h1.effect-shine {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, .6) 30%, #000 50%, rgba(0, 0, 0, .6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 5s infinite;
+}
+
+@-webkit-keyframes shine {
+    from {
+        -webkit-mask-position: 150%;
+    }
+    to {
+        -webkit-mask-position: -50%;
+    }
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(0deg, #314755 0%, #26a0da 30%);
+    color: white;
+}
+
+.inner-header {
+    height: 65vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background-color: white;
+}
+
+
+/* Animation */
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+
+/*Modal form*/
+
+
+/* used id here*/
+
+#myBtn {
+    background-color: #dffafa;
+    color: #00a7a7;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: small;
+    font-family: Poppins;
+    width: 100px;
+    border: solid #47daff 1px;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    margin-left: 10px;
+}
+
+
+/* The Modal (background) */
+
+.modal-form {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-form .form {
+    width: 340px;
+    height: 500px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    margin: calc(50vh - 250px) auto;
+    padding: 20px 30px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    font-family: Comfortaa;
+    position: relative;
+}
+
+.modal-form h2 {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    width: 180px;
+    color: #00c9e4;
+    border-bottom: 3px solid #7f7f80
+}
+
+.modal-form input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: none;
+    outline: none;
+    resize: none;
+    border: 0;
+    font-family: Comfortaa;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2
+}
+
+.modal-form input:focus {
+    border-bottom: 2px solid #78788c
+}
+
+.modal-form label {
+    content: attr(type);
+    display: block;
+    margin: 28px 0 0;
+    font-size: 14px;
+    color: #5a5a5a
+}
+
+.modal-form .form p {
+    color: #314755;
+}
+
+.modal-form button {
+    float: right;
+    padding: 8px 12px;
+    margin: 8px 0 0;
+    font-family: Poppins;
+    border: 2px solid #78788c;
+    background: 0;
+    color: #5a5a6e;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.modal-form button:hover {
+    background: #78788c;
+    color: #fff
+}
+
+.modal-form div {
+    content: 'Hi';
+    position: absolute;
+    bottom: -15px;
+    right: -20px;
+    background: #50d6ff;
+    color: #fff;
+    width: 320px;
+    padding: 16px 4px 16px 0;
+    border-radius: 6px;
+    font-size: 13px;
+    box-shadow: 10px 10px 40px -14px #000
+}
+
+.modal-form span {
+    margin: 0 5px 0 15px
+}
+
+
+/*Shrinking for mobile*/
+
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+    .content {
+        height: 30vh;
+    }
+    h1 {
+        font-size: 24px;
+        padding: 0 40px 0 40px;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Shantanu Nighot">
+    <title>Random quote generator</title>
+    <meta name="description" content="Hi, this is my first django project.">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+
+<body>
+    <!--Hey! This is the original version
+of Simple CSS Waves-->
+
+    <div class="header">
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Contribute</button>
+        <div></div>
+        <div id="myModal" class="modal-form">
+            <form action="{% url 'home' %}" class="form" method="POST">
+                {% csrf_token %}
+                <h2>Add quotes</h2>
+                {{ addquote }}
+                <p>{{ note }}</p>
+                <button type="submit">Submit</button>
+                <div>
+
+                    </span> nighotshantanu@gmail.com
+                </div>
+            </form>
+        </div>
+        <!--Content before waves-->
+        <div class="inner-header flex">
+            <!--Just the logo.. Don't mind this-->
+
+            <h1 class="effect-shine">{{ quotes.quote }}</h1>
+
+        </div>
+
+        <!--Waves Container-->
+        <div>
+            <h4>{{ quotes.author }}</h4>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+    </svg>
+        </div>
+        <!--Waves end-->
+
+    </div>
+    <!--Header ends-->
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>
