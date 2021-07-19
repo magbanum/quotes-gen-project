@@ -1,20 +1,17 @@
 import random
 from django.shortcuts import render
-import random
+
 from .models import Quote
-from .forms import AddQuote
+
 
 # Create your views here.
+
+
 def home(request):
-    quotes = Quote.objects.all()
-    random_quote = random.choice(quotes)
-    if request.method == 'POST':
-        filled_form = AddQuote(request.POST)
-        if filled_form.is_valid():
-            filled_form.save()
-            note = 'Thanks for contributing!'
-            new_form = AddQuote()
-            return render(request,'quotes/home.html', {'quotes':random_quote, 'addquote':new_form, 'note':note})
-    else:   
-        form = AddQuote()
-        return render(request,'quotes/home.html', {'quotes':random_quote, 'addquote':form})
+    quote = Quote.objects.all()
+    random_quote = quote[random.randint(0, 240000)]
+    colors = ['#FDF6F0', '#CDF0EA', '#F0E4D7', '#FFE194', '#FF96AD', '#FFF5DA', '#FCD8D4',
+              '#FFF5B7', '#F8EDED', '#FFFFFF', '#EDFFEC', '#F9F3F3', '#FFE8E8', '#FFDCDC', '#F4F9F9', '#F3F2DA', '#F6F6F6', '#CFFFFE', '#D3DbFF', '#EDF492', '#FFD3E1']
+    color = random.choice(colors)
+    # print(random_quote)
+    return render(request, 'quotes/home.html', {'quotes': random_quote, 'color': color})
